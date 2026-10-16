@@ -1,4 +1,4 @@
-# Bataká Taka
+# BaTaKá TaKá
 
 Minijuego web de **Bataká**, la bebida energética con NOx.
 
@@ -14,4 +14,4 @@ Sitio estático (HTML + three.js). Archivos:
 - `lata_pina.json`, `lata_cereza.json`: modelos 3D de las latas.
 - `tex_pina.jpg`, `tex_cereza.jpg`: etiquetas.
 
-"Ir a pagar" abre WhatsApp con el pedido: "QUIERO X TAKAS! YA! por $X!!!". El precio por lata es de ejemplo (`CONFIG.precio`) y el número está en `CONFIG.whatsapp`.
+El botón de pago abre WhatsApp con el pedido: "TaKá! BaTaKá? TaKá X BaTaKáS TaKá $X". Toda la página usa el lenguaje TaKá de las promos. El precio por lata es de ejemplo (`CONFIG.precio`) y el número está en `CONFIG.whatsapp`.

@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>[hidden]{display:none!important}</style></head><body>
-<title>Bataká Taka</title>
+<title>BaTaKá TaKá</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Barlow:wght@400;600;800&family=Barlow+Condensed:wght@600;800&display=swap">
@@ -56,7 +56,7 @@ footer.ladder{position:fixed;left:0;right:0;bottom:0;padding-bottom:calc(env(saf
 .step{position:absolute;transform:translateX(-50%);text-align:center;font:800 12px/1.15 var(--num);letter-spacing:.06em;color:#ffffff80;white-space:nowrap}
 .step b{display:block;font-size:17px;letter-spacing:0}
 .step.on{color:#fff}
-.step.boom b{font-family:var(--display);font-weight:400}
+.step.boom b{font-family:var(--display);font-weight:400;font-size:13px}
 .step.last{transform:translateX(-100%);text-align:right}
 
 .pop{position:fixed;font-family:var(--display);font-size:clamp(26px,6vw,40px);color:#fff;pointer-events:none;
@@ -77,8 +77,8 @@ footer.ladder{position:fixed;left:0;right:0;bottom:0;padding-bottom:calc(env(saf
 .card .sub{margin:0 0 16px;color:#5a4a3a;font-size:14px}
 .badge{display:inline-block;font:800 13px/1 var(--num);letter-spacing:.08em;text-transform:uppercase;background:var(--ink);color:var(--paper);padding:7px 10px;border-radius:999px;margin-bottom:12px}
 .rows{display:grid;gap:10px;margin-bottom:14px}
-.row{display:grid;grid-template-columns:14px 1fr auto auto;gap:10px;align-items:center;font-size:16px}
-.row .dot{width:14px;height:14px;border-radius:50%}
+.row{display:grid;grid-template-columns:18px 1fr auto auto;gap:10px;align-items:center;font-size:16px}
+.row .dot{width:18px;height:18px;border-radius:50%;box-shadow:0 0 0 2px #0002 inset}
 .row .q{font:800 17px var(--num);font-variant-numeric:tabular-nums}
 .row .p{font:600 17px var(--num);font-variant-numeric:tabular-nums;min-width:70px;text-align:right}
 .qty{display:flex;align-items:center;gap:6px}
@@ -97,40 +97,40 @@ footer.ladder{position:fixed;left:0;right:0;bottom:0;padding-bottom:calc(env(saf
 <div id="stage"><div class="half pina"></div><div class="half cereza"></div></div>
 <canvas id="gl" aria-label="Latas de Bataká girando. Toca una para sumarla al carrito."></canvas>
 <div id="flash"></div>
-<div id="loading">cargando latas…</div>
+<div id="loading">TaKá… TaKá…</div>
 
 <header class="hud">
-  <div class="brand">Bataká</div>
-  <button class="cartbtn" id="cartBtn" type="button" aria-label="Ver carrito">Carrito <span class="count" id="cartCount">0</span></button>
+  <div class="brand">BaTaKá</div>
+  <button class="cartbtn" id="cartBtn" type="button" aria-label="Ver carrito">BaTaKáS <span class="count" id="cartCount">0</span></button>
 </header>
 
-<div id="intro">Toca una lata: cada <b>taka</b> suma una al carrito. Llénala de takas hasta que <b>explote</b>.</div>
+<div id="intro"><b>TaKá</b> = +1 BaTaKá<br><b>TaKáTaKáTaKá…</b> = TaKáBOOM! <b>−$</b></div>
 
 <div class="labels" aria-live="polite">
-  <div class="lab"><div class="name">Piña</div><div class="taps" id="tapsPina">0 takas</div><div class="meter"><i id="mPina"></i></div></div>
-  <div class="lab"><div class="name">Cereza</div><div class="taps" id="tapsCereza">0 takas</div><div class="meter"><i id="mCereza"></i></div></div>
+  <div class="lab"><div class="name">BaTaKá</div><div class="taps" id="tapsPina">0 TaKáS</div><div class="meter"><i id="mPina"></i></div></div>
+  <div class="lab"><div class="name">BaTaKá</div><div class="taps" id="tapsCereza">0 TaKáS</div><div class="meter"><i id="mCereza"></i></div></div>
 </div>
 
 <footer class="ladder">
-  <div class="hint" id="hint">6 latas = 10% · 12 latas = 15% · explota una lata = 20%</div>
+  <div class="hint" id="hint">6 BaTaKáS −10% · 12 BaTaKáS −15% · TaKáBOOM −20%</div>
   <div class="track"><div class="fill" id="fill"></div></div>
   <div class="steps" id="steps"></div>
 </footer>
 
 <div id="sheet" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
   <div class="card">
-    <h2 id="cartTitle">Tu carrito Bataká</h2>
-    <p class="sub" id="cartSub">Precios de ejemplo para el prototipo.</p>
+    <h2 id="cartTitle">TuS BaTaKáS</h2>
+    <p class="sub" id="cartSub">TaKá!</p>
     <div id="badgeWrap"></div>
     <div class="rows" id="rows"></div>
     <div class="tot">
-      <div><span>Subtotal</span><span id="subtotal">$0.00</span></div>
-      <div class="disc"><span id="discLabel">Descuento takas</span><span id="disc">−$0.00</span></div>
-      <div class="grand"><span>Total</span><span id="total">$0.00</span></div>
+      <div><span>BaTaKáS $</span><span id="subtotal">$0.00</span></div>
+      <div class="disc"><span id="discLabel">TaKá −%</span><span id="disc">−$0.00</span></div>
+      <div class="grand"><span>TaKá $</span><span id="total">$0.00</span></div>
     </div>
     <div class="actions">
-      <button class="btn" id="again" type="button">Seguir takeando</button>
-      <a class="btn main" id="pay" href="https://wa.me/593969577774" target="_blank" rel="noopener">Ir a pagar</a>
+      <button class="btn" id="again" type="button">TaKá TaKá ↺</button>
+      <a class="btn main" id="pay" href="https://wa.me/593969577774" target="_blank" rel="noopener">TaKá! $ →</a>
     </div>
     <p class="note" id="note"></p>
   </div>
@@ -150,8 +150,8 @@ const CONFIG = {
   crece: 0.034                 // cuánto crece la lata por taka
 };
 const FLAV = {
-  pina:   {name:"Bataká Piña",   color:0xf5a300, css:"#f5a300", glb:"lata_pina.json", tex:"tex_pina.jpg", x:-1, tilt: 0.26},
-  cereza: {name:"Bataká Cereza", color:0xd0102a, css:"#d0102a", glb:"lata_cereza.json", tex:"tex_cereza.jpg", x: 1, tilt:-0.26}
+  pina:   {name:"BaTaKá",   color:0xf5a300, css:"#f5a300", glb:"lata_pina.json", tex:"tex_pina.jpg", x:-1, tilt: 0.26},
+  cereza: {name:"BaTaKá", color:0xd0102a, css:"#d0102a", glb:"lata_cereza.json", tex:"tex_cereza.jpg", x: 1, tilt:-0.26}
 };
 const state = { taps:{pina:0, cereza:0}, cart:{pina:0, cereza:0}, exploded:false, busy:false };
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -232,7 +232,7 @@ addEventListener("resize",layout);
 
 /* ---------------- UI ---------------- */
 const $=id=>document.getElementById(id);
-const steps=[...CONFIG.escalones.map(s=>({at:s.latas,txt:s.pct+"%",lab:s.latas+" latas"})),{at:CONFIG.explota,txt:"BOOM",lab:CONFIG.pctExplosion+"%",boom:true}];
+const steps=[...CONFIG.escalones.map(s=>({at:s.latas,txt:"−"+s.pct+"%",lab:s.latas+" BaTaKáS"})),{at:CONFIG.explota,txt:"TaKáBOOM",lab:"−"+CONFIG.pctExplosion+"%",boom:true}];
 const maxSteps=CONFIG.explota;
 $("steps").innerHTML=steps.map(s=>`<div class="step${s.boom?' boom last':''}" style="left:${(s.at/maxSteps*100).toFixed(1)}%"><b>${s.txt}</b>${s.lab}</div>`).join("");
 function totalCans(){ return state.cart.pina+state.cart.cereza; }
@@ -241,16 +241,16 @@ function money(v){ return "$"+v.toFixed(2); }
 function refreshHUD(){
   const n=totalCans(); $("cartCount").textContent=n;
   for(const id of ["pina","cereza"]){ const t=state.taps[id];
-    $(id==="pina"?"tapsPina":"tapsCereza").textContent=t+(t===1?" taka":" takas");
+    $(id==="pina"?"tapsPina":"tapsCereza").textContent=t+(t===1?" TaKá":" TaKáS");
     $(id==="pina"?"mPina":"mCereza").style.width=Math.min(100,t/CONFIG.explota*100)+"%"; }
   const best=Math.max(state.taps.pina,state.taps.cereza);
   $("fill").style.width=Math.min(100,Math.max(n,best)/maxSteps*100)+"%";
   [...$("steps").children].forEach((el,i)=>el.classList.toggle("on", steps[i].boom?state.exploded:n>=steps[i].at));
   const next=CONFIG.escalones.find(s=>n<s.latas);
-  $("hint").innerHTML = state.exploded ? `<b>¡Explotó!</b> Desbloqueaste ${CONFIG.pctExplosion}% de descuento`
-    : n===0 ? "6 latas = 10% · 12 latas = 15% · explota una lata = 20%"
-    : next ? `<b>${n}</b> en el carrito · faltan <b>${next.latas-n}</b> para ${next.pct}%`
-    : `<b>${discountPct()}%</b> desbloqueado · explota una lata para ${CONFIG.pctExplosion}%`;
+  $("hint").innerHTML = state.exploded ? `<b>TaKáBOOM!!!</b> −${CONFIG.pctExplosion}% $`
+    : n===0 ? "6 BaTaKáS −10% · 12 BaTaKáS −15% · TaKáBOOM −20%"
+    : next ? `<b>${n}</b> BaTaKáS · TaKá +<b>${next.latas-n}</b> → −${next.pct}%`
+    : `<b>−${discountPct()}%</b> TaKá! · TaKáBOOM → −${CONFIG.pctExplosion}%`;
 }
 function popText(x,y,txt){ const el=document.createElement("div"); el.className="pop"; el.textContent=txt; el.style.left=x+"px"; el.style.top=y+"px"; document.body.appendChild(el);
   const dx=(Math.random()-.5)*80, rot=(Math.random()-.5)*30;
@@ -270,7 +270,7 @@ canvas.addEventListener("pointerdown",e=>{
 });
 function tap(id,x,y){
   const c=cans[id]; state.taps[id]++; state.cart[id]++;
-  taka(state.taps[id]); popText(x,y,"¡taka!"); bumpCart();
+  taka(state.taps[id]); popText(x,y,"TaKá!"); bumpCart();
   c.target=1+state.taps[id]*CONFIG.crece; c.wob=1; c.speed=Math.min(9,c.speed+0.45);
   if(navigator.vibrate) try{navigator.vibrate(12)}catch(_){}
   refreshHUD();
@@ -305,13 +305,13 @@ function renderCart(){
   $("rows").innerHTML = rows.length ? rows.map(id=>`<div class="row"><span class="dot" style="background:${FLAV[id].css}"></span><span>${FLAV[id].name}</span>
     <span class="qty"><button type="button" data-id="${id}" data-d="-1" aria-label="Quitar una">−</button><span class="q">${state.cart[id]}</span><button type="button" data-id="${id}" data-d="1" aria-label="Agregar una">+</button></span>
     <span class="p">${money(state.cart[id]*CONFIG.precio)}</span></div>`).join("")
-    : `<p style="margin:0;color:#6b5a48">Aún no hay latas. Toca una lata para empezar.</p>`;
+    : `<p style="margin:0;color:#6b5a48">0 BaTaKáS · TaKá? ↑</p>`;
   const sub=totalCans()*CONFIG.precio, pct=discountPct(), d=sub*pct/100;
-  const msg=`QUIERO ${totalCans()} TAKAS! YA! por ${money(sub-d)}!!!`;
+  const msg=`TaKá! BaTaKá? TaKá ${totalCans()} BaTaKáS TaKá ${money(sub-d)}`;
   $("pay").href=`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
-  $("subtotal").textContent=money(sub); $("discLabel").textContent=`Descuento takas (${pct}%)`; $("disc").textContent="−"+money(d); $("total").textContent=money(sub-d);
-  $("badgeWrap").innerHTML = state.exploded ? `<span class="badge">Lata explotada · ${CONFIG.pctExplosion}% off</span>` : pct ? `<span class="badge">${pct}% desbloqueado</span>` : "";
-  $("cartSub").textContent = `${totalCans()} latas · ${state.taps.pina+state.taps.cereza} takas. Precio de ejemplo: ${money(CONFIG.precio)} c/u.`;
+  $("subtotal").textContent=money(sub); $("discLabel").textContent=`TaKá −${pct}%`; $("disc").textContent="−"+money(d); $("total").textContent=money(sub-d);
+  $("badgeWrap").innerHTML = state.exploded ? `<span class="badge">TaKáBOOM! −${CONFIG.pctExplosion}%</span>` : pct ? `<span class="badge">TaKá! −${pct}%</span>` : "";
+  $("cartSub").textContent = `${totalCans()} BaTaKáS · ${state.taps.pina+state.taps.cereza} TaKáS · ${money(CONFIG.precio)} × BaTaKá`;
 }
 $("rows").addEventListener("click",e=>{ const b=e.target.closest("button"); if(!b) return; const id=b.dataset.id; state.cart[id]=Math.max(0,state.cart[id]+(+b.dataset.d)); renderCart(); refreshHUD(); });
 function openCart(){ renderCart(); $("note").textContent=""; $("sheet").classList.add("open"); }
@@ -319,7 +319,7 @@ $("cartBtn").addEventListener("click",()=>{ audio(); openCart(); });
 $("sheet").addEventListener("click",e=>{ if(e.target.id==="sheet") closeCart(); });
 function closeCart(){ $("sheet").classList.remove("open"); }
 $("again").addEventListener("click",()=>{ closeCart(); resetCans(); });
-$("pay").addEventListener("click",e=>{ if(totalCans()===0){ e.preventDefault(); $("note").textContent="Agrega al menos una lata para hacer tu pedido."; } else { $("note").textContent="Se abre WhatsApp con tu pedido. Si no se abre, escríbenos al +593 96 957 7774."; } });
+$("pay").addEventListener("click",e=>{ if(totalCans()===0){ e.preventDefault(); $("note").textContent="TaKá? +1 BaTaKá ↑"; } else { $("note").textContent="TaKá! → WhatsApp +593 96 957 7774"; } });
 function resetCans(){ for(const id in cans){ const c=cans[id]; if(!c.alive){ c.alive=true; c.root.visible=true; state.taps[id]=0; c.scale=0.2; c.target=1; c.speed=1.1; } }
   if(burst){ scene.remove(burst.pts); scene.remove(burst.ring); burst=null; } state.busy=false; refreshHUD(); }
 
@@ -347,6 +347,6 @@ function frame(){
 }
 layout(); refreshHUD();
 Promise.all([loadCan("pina"),loadCan("cereza")]).then(()=>{ $("loading").hidden=true; frame(); })
-  .catch(err=>{ $("loading").textContent="No se pudieron cargar las latas. Recarga la página."; console.error(err); });
+  .catch(err=>{ $("loading").textContent="TaKá…? ↻ (recarga la página)"; console.error(err); });
 </script>
 </body></html>
