@@ -88,7 +88,7 @@ footer.ladder{position:fixed;left:0;right:0;bottom:0;padding-bottom:calc(env(saf
 .tot .disc{color:#b0101f}
 .tot .grand{font-size:24px;font-weight:800}
 .actions{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
-.btn{flex:1 1 160px;border:2px solid var(--ink);border-radius:14px;padding:14px;font:800 16px var(--body);cursor:pointer;background:transparent;color:var(--ink)}
+.btn{flex:1 1 160px;text-align:center;text-decoration:none;box-sizing:border-box;border:2px solid var(--ink);border-radius:14px;padding:14px;font:800 16px var(--body);cursor:pointer;background:transparent;color:var(--ink)}
 .btn.main{background:var(--ink);color:var(--paper);box-shadow:0 3px 0 #000}
 .note{font-size:12.5px;color:#6b5a48;margin:12px 0 0;min-height:1em}
 @media (prefers-reduced-motion:reduce){.card{transition:none}.cartbtn.bump{animation:none}}
@@ -130,7 +130,7 @@ footer.ladder{position:fixed;left:0;right:0;bottom:0;padding-bottom:calc(env(saf
     </div>
     <div class="actions">
       <button class="btn" id="again" type="button">Seguir takeando</button>
-      <button class="btn main" id="pay" type="button">Ir a pagar</button>
+      <a class="btn main" id="pay" href="https://wa.me/593969577774" target="_blank" rel="noopener">Ir a pagar</a>
     </div>
     <p class="note" id="note"></p>
   </div>
@@ -143,6 +143,7 @@ footer.ladder{position:fixed;left:0;right:0;bottom:0;padding-bottom:calc(env(saf
 /* ---------------- configuración (editable) ---------------- */
 const CONFIG = {
   precio: 2.00,                // USD por lata (EJEMPLO, cambiar por el precio real)
+  whatsapp: "593969577774",    // número de pedidos (Ecuador +593, sin el 0 inicial)
   explota: 18,                 // takas sobre UNA lata para que explote
   escalones: [ {latas:6, pct:10}, {latas:12, pct:15} ],
   pctExplosion: 20,
@@ -306,6 +307,8 @@ function renderCart(){
     <span class="p">${money(state.cart[id]*CONFIG.precio)}</span></div>`).join("")
     : `<p style="margin:0;color:#6b5a48">Aún no hay latas. Toca una lata para empezar.</p>`;
   const sub=totalCans()*CONFIG.precio, pct=discountPct(), d=sub*pct/100;
+  const msg=`QUIERO ${totalCans()} TAKAS! YA! por ${money(sub-d)}!!!`;
+  $("pay").href=`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
   $("subtotal").textContent=money(sub); $("discLabel").textContent=`Descuento takas (${pct}%)`; $("disc").textContent="−"+money(d); $("total").textContent=money(sub-d);
   $("badgeWrap").innerHTML = state.exploded ? `<span class="badge">Lata explotada · ${CONFIG.pctExplosion}% off</span>` : pct ? `<span class="badge">${pct}% desbloqueado</span>` : "";
   $("cartSub").textContent = `${totalCans()} latas · ${state.taps.pina+state.taps.cereza} takas. Precio de ejemplo: ${money(CONFIG.precio)} c/u.`;
@@ -316,7 +319,7 @@ $("cartBtn").addEventListener("click",()=>{ audio(); openCart(); });
 $("sheet").addEventListener("click",e=>{ if(e.target.id==="sheet") closeCart(); });
 function closeCart(){ $("sheet").classList.remove("open"); }
 $("again").addEventListener("click",()=>{ closeCart(); resetCans(); });
-$("pay").addEventListener("click",()=>{ $("note").textContent="Prototipo: aquí se conecta el pago de la tienda con este carrito y el descuento."; });
+$("pay").addEventListener("click",e=>{ if(totalCans()===0){ e.preventDefault(); $("note").textContent="Agrega al menos una lata para hacer tu pedido."; } else { $("note").textContent="Se abre WhatsApp con tu pedido. Si no se abre, escríbenos al +593 96 957 7774."; } });
 function resetCans(){ for(const id in cans){ const c=cans[id]; if(!c.alive){ c.alive=true; c.root.visible=true; state.taps[id]=0; c.scale=0.2; c.target=1; c.speed=1.1; } }
   if(burst){ scene.remove(burst.pts); scene.remove(burst.ring); burst=null; } state.busy=false; refreshHUD(); }
 

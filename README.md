@@ -14,4 +14,4 @@ Sitio estático (HTML + three.js). Archivos:
 - `lata_pina.json`, `lata_cereza.json`: modelos 3D de las latas.
 - `tex_pina.jpg`, `tex_cereza.jpg`: etiquetas.
 
-Prototipo: el botón "Ir a pagar" aún no está conectado a una tienda y el precio es de ejemplo.
+"Ir a pagar" abre WhatsApp con el pedido: "QUIERO X TAKAS! YA! por $X!!!". El precio por lata es de ejemplo (`CONFIG.precio`) y el número está en `CONFIG.whatsapp`.
